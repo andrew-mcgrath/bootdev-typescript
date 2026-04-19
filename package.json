@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/andrew-mcgrath/bootdev-typescript/issues"
   },
-  "homepage": "https://github.com/andrew-mcgrath/bootdev-typescript#readme"
+  "homepage": "https://github.com/andrew-mcgrath/bootdev-typescript#readme",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
 }
