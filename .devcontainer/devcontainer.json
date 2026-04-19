@@ -1,0 +1,58 @@
+{
+  "name": "Node & Python Dev",
+  "build": { "dockerfile": "Dockerfile" },
+  "runArgs": ["--network=host"],
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+    "ghcr.io/stu-bell/devcontainer-features/claude-code:0": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainer-community/devcontainer-features/yq:1": {}
+  },
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly,type=bind",
+    "source=claude-data,target=/home/node/.claude,type=volume",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws,target=/home/node/.aws,type=bind,consistency=cached"
+  ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}",
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.watcherExclude": {
+          "**/node_modules/**": true,
+          "**/.angular/**": true,
+          "**/.venv/**": true
+        },
+        "search.exclude": {
+          "**/.angular/**": true,
+          "**/.venv/**": true
+        },
+        "dev.containers.githubCLILoginWithToken": true,
+        "terminals.autorun": true
+      },
+      "extensions": [
+        "bierner.markdown-emoji",
+        "smulyono.reveal",
+        "streetsidesoftware.code-spell-checker",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-python.python",
+        "angular.ng-template",
+        "anthropic.claude-code",
+        "vivaxy.vscode-conventional-commits",
+        "fabiospampinato.vscode-terminals",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  }
+}
