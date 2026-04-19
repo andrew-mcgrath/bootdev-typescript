@@ -1,6 +1,7 @@
 function main(): void {
   const projectName = "support.ai";
-  welcome(projectName);
+  const welcome_response: string = welcome(projectName);
+  console.log(welcome_response);
 }
 
 function welcome(name: string) {
