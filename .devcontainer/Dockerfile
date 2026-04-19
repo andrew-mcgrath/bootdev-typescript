@@ -13,3 +13,6 @@ RUN ARCH=$(dpkg --print-architecture) && \
     | tar -xz -C /usr/local/bin actionlint
 
 USER node
+
+RUN go install github.com/bootdotdev/bootdev@latest
+RUN npm install -g typescript
